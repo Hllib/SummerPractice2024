@@ -3,7 +3,7 @@ using Unity.Collections;
 using UnityEngine;
 using UnityEngine.Jobs;
 
-namespace HlStudio
+namespace HlStudio.Jobs
 {
     [BurstCompile]
     public struct MoveJob: IJobParallelForTransform
