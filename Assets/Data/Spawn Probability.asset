@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44ed9805cd2745b3a0d41eb99e525c52, type: 3}
+  m_Name: Spawn Probability
+  m_EditorClassIdentifier: 
+  <EntityProbabilities>k__BackingField:
+  - <Title>k__BackingField: Fish1
+    <Probability>k__BackingField: 20
+    <Entity>k__BackingField: {fileID: 4934434560075392306, guid: c872380dd0bd9b34ebc949d76b466470, type: 3}
+  - <Title>k__BackingField: Fish2
+    <Probability>k__BackingField: 20
+    <Entity>k__BackingField: {fileID: 4934434560075392306, guid: 801273f810269f54ba7962a439abfe15, type: 3}
+  - <Title>k__BackingField: Fish3
+    <Probability>k__BackingField: 40
+    <Entity>k__BackingField: {fileID: 4934434560075392306, guid: 8de5ed2b15ae1f042ac375915dcb8b39, type: 3}
+  - <Title>k__BackingField: Fish4
+    <Probability>k__BackingField: 19
+    <Entity>k__BackingField: {fileID: 4934434560075392306, guid: 9c3d15abc6cb41449a3c3fd0832b3a50, type: 3}
+  - <Title>k__BackingField: Shark
+    <Probability>k__BackingField: 1
+    <Entity>k__BackingField: {fileID: 4934434560075392306, guid: edaf73c0319ca9e4aa287d877075191a, type: 3}

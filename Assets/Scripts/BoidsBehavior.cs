@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using HlStudio.Jobs;
 using Unity.Collections;
 using Unity.Jobs;
@@ -10,13 +11,14 @@ namespace HlStudio
     public class BoidsBehavior : MonoBehaviour
     {
         [SerializeField] private int _numberOfEntities;
-        [SerializeField] private GameObject _entityPrefab;
         [SerializeField] private float _destinationTheshold;
         [SerializeField] private Vector3 _areaSize;
 
         [SerializeField] private float _velocityLimit;
         [SerializeField] private Vector3 _accelerationWeights;
 
+        [SerializeField] private SpawnProbability _spawnProbability;
+        
         private NativeArray<Vector3> _positions;
         private NativeArray<Vector3> _velocities;
         private NativeArray<Vector3> _accelerations;
@@ -34,7 +36,9 @@ namespace HlStudio
 
             for (int i = 0; i < _numberOfEntities; i++)
             {
-                transforms[i] = Instantiate(_entityPrefab, transform).transform;
+                SpawnProbability.EntityProbability selectedEntity = _spawnProbability.GetEntity();
+                print("Spawned : " + selectedEntity.Title);
+                transforms[i] = Instantiate(selectedEntity.Entity, transform).transform;
                 _velocities[i] = Random.insideUnitSphere;
             }
 
