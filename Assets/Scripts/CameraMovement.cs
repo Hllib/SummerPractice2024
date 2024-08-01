@@ -18,11 +18,9 @@ namespace HlStudio
         private Vector3 currentRotation;
         private Vector3 rotationSmoothVelocity;
 
-        void Start()
+        private void Start()
         {
-            // Lock and hide the cursor
             Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
         }
 
         void Update()
