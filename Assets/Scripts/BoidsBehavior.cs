@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+using System.Threading.Tasks;
 using HlStudio.Jobs;
 using Unity.Collections;
 using Unity.Jobs;
@@ -8,44 +8,23 @@ using Random = UnityEngine.Random;
 
 namespace HlStudio
 {
-    public class BoidsBehavior : MonoBehaviour
+    public class BoidsBehavior : MonoBehaviour, IInitializable
     {
         [SerializeField] private int _numberOfEntities;
         [SerializeField] private float _destinationTheshold;
 
         [SerializeField] private Vector3 _areaSize;
-        [SerializeField] private GameObject _wallPrefab;
         
         [SerializeField] private float _velocityLimit;
         [SerializeField] private Vector3 _accelerationWeights;
 
         [SerializeField] private SpawnProbability _spawnProbability;
-
+        
         private NativeArray<Vector3> _positions;
         private NativeArray<Vector3> _velocities;
         private NativeArray<Vector3> _accelerations;
 
         private TransformAccessArray _transformAccessArray;
-
-
-        private void Start()
-        {
-            _positions = new NativeArray<Vector3>(_numberOfEntities, Allocator.Persistent);
-            _velocities = new NativeArray<Vector3>(_numberOfEntities, Allocator.Persistent);
-            _accelerations = new NativeArray<Vector3>(_numberOfEntities, Allocator.Persistent);
-
-            var transforms = new Transform[_numberOfEntities];
-
-            for (int i = 0; i < _numberOfEntities; i++)
-            {
-                SpawnProbability.EntityProbability selectedEntity = _spawnProbability.GetEntity();
-                print("Spawned : " + selectedEntity.Title);
-                transforms[i] = Instantiate(selectedEntity.Entity, transform).transform;
-                _velocities[i] = Random.insideUnitSphere;
-            }
-
-            _transformAccessArray = new TransformAccessArray(transforms);
-        }
 
         private void Update()
         {
@@ -93,11 +72,27 @@ namespace HlStudio
             Gizmos.DrawWireCube(transform.position, _areaSize);
         }
 
-        [ContextMenu("Generate Walls")]
-        private void CreateWalls()
+        public Task Init()
         {
-            WallBuilder wallBuilder = new WallBuilder(_wallPrefab, 0.2f, _areaSize);
-            wallBuilder.SpawnAll();
+            _numberOfEntities = PlayerPrefs.GetInt("NumberOfEntities");
+            
+            _positions = new NativeArray<Vector3>(_numberOfEntities, Allocator.Persistent);
+            _velocities = new NativeArray<Vector3>(_numberOfEntities, Allocator.Persistent);
+            _accelerations = new NativeArray<Vector3>(_numberOfEntities, Allocator.Persistent);
+
+            var transforms = new Transform[_numberOfEntities];
+
+            for (int i = 0; i < _numberOfEntities; i++)
+            {
+                SpawnProbability.EntityProbability selectedEntity = _spawnProbability.GetEntity();
+                print("Spawned : " + selectedEntity.Title);
+                transforms[i] = Instantiate(selectedEntity.Entity, transform).transform;
+                _velocities[i] = Random.insideUnitSphere;
+            }
+
+            _transformAccessArray = new TransformAccessArray(transforms);
+            
+            return Task.CompletedTask;
         }
     }
 }
