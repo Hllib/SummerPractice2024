@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: bbccb6f8be158824b8f37d9e72777216
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 284515
+  packageName: UI window system and tools
+  packageVersion: 1.0.0
+  assetPath: Assets/BG Games/UI window system and tools/Scripts/Base/AnimationPresets/ShowAnimationPreset.cs
+  uploadId: 665360

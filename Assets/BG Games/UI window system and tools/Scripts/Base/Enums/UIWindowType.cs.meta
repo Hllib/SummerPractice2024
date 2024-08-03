@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 1f41dd6a6d1047b98d4e4dd22c98b7ec
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 284515
+  packageName: UI window system and tools
+  packageVersion: 1.0.0
+  assetPath: Assets/BG Games/UI window system and tools/Scripts/Base/Enums/UIWindowType.cs
+  uploadId: 665360

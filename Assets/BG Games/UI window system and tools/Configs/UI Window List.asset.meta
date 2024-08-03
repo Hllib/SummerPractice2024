@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: a12fd82635d958345b98af2a1b963782
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 284515
+  packageName: UI window system and tools
+  packageVersion: 1.0.0
+  assetPath: Assets/BG Games/UI window system and tools/Configs/UI Window List.asset
+  uploadId: 665360

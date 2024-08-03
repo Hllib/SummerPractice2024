@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 2579a3a9706a4a5084f93e971df426bd
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 284515
+  packageName: UI window system and tools
+  packageVersion: 1.0.0
+  assetPath: Assets/BG Games/UI window system and tools/Scripts/Base/UIWindowListElement.cs
+  uploadId: 665360

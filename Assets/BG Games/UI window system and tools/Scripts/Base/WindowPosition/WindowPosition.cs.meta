@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: b1a6d1f65ff751b4b829e5e69e5d0a63
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 284515
+  packageName: UI window system and tools
+  packageVersion: 1.0.0
+  assetPath: Assets/BG Games/UI window system and tools/Scripts/Base/WindowPosition/WindowPosition.cs
+  uploadId: 665360
