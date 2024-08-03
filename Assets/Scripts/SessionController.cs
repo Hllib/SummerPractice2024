@@ -15,7 +15,7 @@ namespace HlStudio
         [SerializeField] private UIButton _playButton;
 
         private int _currentSliderValue;
-        
+
         private void Start()
         {
             _slider.onValueChanged.AddListener(OnSliderValueChanged);
@@ -27,12 +27,16 @@ namespace HlStudio
             PlayerPrefs.SetInt("NumberOfEntities", _currentSliderValue);
             SceneManager.LoadScene("Demo");
         }
-        
+
         private void OnSliderValueChanged(float value)
         {
             int amount = Convert.ToInt32(value);
             _currentSliderValue = amount;
-            _numberOfEntitiesText.text = amount.ToString(CultureInfo.InvariantCulture);
+            
+            _numberOfEntitiesText.text = amount == 1000? 
+                $"Number of entities: {amount.ToString(CultureInfo.InvariantCulture)} <br> (recommended)"
+                : $"Number of entities: {amount.ToString(CultureInfo.InvariantCulture)}";
+                
         }
     }
 }
