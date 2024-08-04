@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 using BG_Games.Scripts.Buttons;
 using TMPro;
@@ -13,18 +14,20 @@ namespace HlStudio
         [SerializeField] private TMP_Text _numberOfEntitiesText;
         [SerializeField] private Slider _slider;
         [SerializeField] private UIButton _playButton;
-
+        
         private int _currentSliderValue;
 
         private void Start()
         {
-            _slider.onValueChanged.AddListener(OnSliderValueChanged);
             _playButton.AssignAction(StartSession);
+            _slider.onValueChanged.AddListener(OnSliderValueChanged);
+            
+            _currentSliderValue = (int)_slider.value;
         }
-
+        
         private void StartSession()
         {
-            PlayerPrefs.SetInt("NumberOfEntities", _currentSliderValue);
+            PlayerPrefs.SetInt(PrefsKeys.NumberOfEntities, _currentSliderValue);
             SceneManager.LoadScene("Demo");
         }
 
@@ -32,11 +35,10 @@ namespace HlStudio
         {
             int amount = Convert.ToInt32(value);
             _currentSliderValue = amount;
-            
-            _numberOfEntitiesText.text = amount == 1000? 
-                $"Number of entities: {amount.ToString(CultureInfo.InvariantCulture)} <br> (recommended)"
+
+            _numberOfEntitiesText.text = amount == 1000
+                ? $"Number of entities: {amount.ToString(CultureInfo.InvariantCulture)} <br> (recommended)"
                 : $"Number of entities: {amount.ToString(CultureInfo.InvariantCulture)}";
-                
         }
     }
 }

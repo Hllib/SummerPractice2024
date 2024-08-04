@@ -8,6 +8,8 @@ namespace HlStudio
 {
     public class CameraController : MonoBehaviour, IInitializable
     {
+        public bool Initialized { get; set; }
+        
         [SerializeField] private Camera _camera;
         [SerializeField] private List<Transform> _cameraSpots;
         [SerializeField, Range(0.1f, 10f)] private float _blendSpeed;

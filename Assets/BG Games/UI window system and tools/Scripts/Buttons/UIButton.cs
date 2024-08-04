@@ -83,6 +83,12 @@ namespace BG_Games.Scripts.Buttons
             _wasTouched = false;
         }
 
+        public void ForceSelect()
+        {
+            _audioSource?.Play();
+            OnClick?.Invoke();
+        }
+        
         public void OnPointerClick(PointerEventData eventData)
         {
             if (!interactable) return;

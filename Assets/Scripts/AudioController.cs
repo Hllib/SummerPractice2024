@@ -5,6 +5,8 @@ namespace HlStudio
 {
     public class AudioController : MonoBehaviour, IInitializable
     {
+        public bool Initialized { get; set; }
+        
         [SerializeField] private AudioSource _audioSource;
         [SerializeField] private AudioClip _audioClip;
 

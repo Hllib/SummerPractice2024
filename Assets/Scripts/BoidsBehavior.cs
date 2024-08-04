@@ -10,24 +10,27 @@ namespace HlStudio
 {
     public class BoidsBehavior : MonoBehaviour, IInitializable
     {
-        [SerializeField] private int _numberOfEntities;
-        [SerializeField] private float _destinationTheshold;
-
-        [SerializeField] private Vector3 _areaSize;
+        public bool Initialized { get; set; }
         
-        [SerializeField] private float _velocityLimit;
-        [SerializeField] private Vector3 _accelerationWeights;
-
+        [SerializeField] private int _numberOfEntities;
+        [SerializeField] private Vector3 _areaSize;
         [SerializeField] private SpawnProbability _spawnProbability;
+        [SerializeField] private SessionPreset _sessionPreset;
+        
+        private float _destinationTheshold;
+        private float _velocityLimit;
+        private Vector3 _accelerationWeights;
         
         private NativeArray<Vector3> _positions;
         private NativeArray<Vector3> _velocities;
         private NativeArray<Vector3> _accelerations;
-
         private TransformAccessArray _transformAccessArray;
+
 
         private void Update()
         {
+            if(!Initialized) return;
+            
             var boundsJob = new BoundsJob()
             {
                 Accelerations = _accelerations,
@@ -72,9 +75,21 @@ namespace HlStudio
             Gizmos.DrawWireCube(transform.position, _areaSize);
         }
 
+        private void LoadValues()
+        {
+            _numberOfEntities = PlayerPrefs.GetInt(PrefsKeys.NumberOfEntities);
+            string preset = PlayerPrefs.GetString(PrefsKeys.SessionPreset, _sessionPreset.name);
+            
+            _sessionPreset = Resources.Load<SessionPreset>(preset);
+            print("loaded " + _sessionPreset.name);
+            _destinationTheshold = _sessionPreset.DestinationTheshold;
+            _accelerationWeights = _sessionPreset.Accelerations;
+            _velocityLimit = _sessionPreset.VelocityLimit;
+        }
+        
         public Task Init()
         {
-            _numberOfEntities = PlayerPrefs.GetInt("NumberOfEntities");
+            LoadValues();
             
             _positions = new NativeArray<Vector3>(_numberOfEntities, Allocator.Persistent);
             _velocities = new NativeArray<Vector3>(_numberOfEntities, Allocator.Persistent);

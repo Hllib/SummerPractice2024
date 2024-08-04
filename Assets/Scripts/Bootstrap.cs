@@ -17,6 +17,7 @@ namespace HlStudio
                     if(_debug) print($"<color=yellow>{initializable}</color> <color=red>started</color> Init at {Time.time}");
                     
                     await initializable.Init();
+                    initializable.Initialized = true;
                     
                     if(_debug) print($"<color=yellow>{initializable}</color> <color=green>finished</color> Init at {Time.time}");
                 }
