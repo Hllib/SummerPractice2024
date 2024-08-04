@@ -14,7 +14,6 @@ namespace HlStudio.Jobs
         public float DeltaTime;
         public float VelocityLimit;
         
-        
         public void Execute(int index, TransformAccess transform)
         {
             var velocity = Velocities[index] + Accelerations[index] * DeltaTime;
