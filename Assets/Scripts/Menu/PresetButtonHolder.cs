@@ -18,7 +18,7 @@ namespace HlStudio
             {
                 button.Chosen += Chosen;
             }
-            
+
             _selectPresetButtons[0].ForceSelect();
         }
 
@@ -39,7 +39,9 @@ namespace HlStudio
         private void SetDescription(SessionPreset preset)
         {
             _presetDecsription.text =
-                $"Entities Speed: {preset.VelocityLimit}. Movement Offset: {preset.DestinationTheshold} <br> Accelerations: {preset.Accelerations}";
+                $"Entities Speed: <color=red>{preset.VelocityLimit}</color>. M" +
+                $"ovement Offset: <color=red>{preset.DestinationTheshold}</color> <br> " +
+                $"Accelerations: <color=red>{preset.Accelerations}</color>";
         }
     }
 }

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c982763a858494e8a70a47ae8d69cdd, type: 3}
   m_Name: Session Preset 3
   m_EditorClassIdentifier: 
-  <NumberOfEntities>k__BackingField: 3000
-  <Accelerations>k__BackingField: {x: 4, y: 1.5, z: 0.4}
-  <VelocityLimit>k__BackingField: 3
-  <DestinationTheshold>k__BackingField: 3
+  <NumberOfEntities>k__BackingField: 700
+  <Accelerations>k__BackingField: {x: 4, y: 0.3, z: 0.6}
+  <VelocityLimit>k__BackingField: 8
+  <DestinationTheshold>k__BackingField: 2
