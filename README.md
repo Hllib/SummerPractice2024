@@ -6,6 +6,7 @@ Welcome to the **Summer Practice 2024 project: Boids Behaviour with high optimiz
 - [Introduction](#introduction)
 - [Key Features](#key-features)
 - [Benefits of Unity Job System](#benefits-of-unity-job-system)
+- [Screenshots](#screenshots)
 - [Testing the package](#testing-the-package)
 
 ## Introduction
@@ -31,4 +32,7 @@ The Unity Job System is a powerful tool for optimizing game performance by takin
 
 5. **Deterministic Execution**: Jobs in Unity are executed in a predictable order, ensuring consistent results across different runs and platforms.
 
+## Screenshots
+
 ## Testing the package
+Just download the release v0.1.0 "First Release" from here: https://github.com/Hllib/SummerPractice2024/releases/tag/v0.1.0 
